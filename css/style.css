@@ -545,3 +545,291 @@ body::before {
     height: 70px;
   }
 }
+
+/* ===================================================== */
+/* ===== TELA DE MÚSICAS ===== */
+/* ===================================================== */
+
+.music-screen {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top, #070b25 0%, #020311 60%, #000000 100%);
+
+  overflow: hidden;
+}
+
+/* ===================================================== */
+/* ===== TÍTULO ===== */
+/* ===================================================== */
+
+.music-title-area {
+  position: absolute;
+
+  top: 40px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 80%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.music-title-area span {
+  font-size: 58px;
+  font-weight: bold;
+
+  color: white;
+
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.6);
+}
+
+/* LINHA ONDA */
+
+.music-wave {
+  width: 100%;
+  height: 8px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,255,255,0.7),
+      transparent
+    );
+
+  animation:
+    musicWave 4s linear infinite;
+}
+
+/* ===================================================== */
+/* ===== LISTA DE MÚSICAS ===== */
+/* ===================================================== */
+
+.music-list {
+  position: absolute;
+
+  top: 180px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 70%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.music-row {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 30px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(20, 30, 80, 0.6);
+
+  border:
+    2px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+}
+
+.music-row span {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* ===================================================== */
+/* ===== BOTÕES ===== */
+/* ===================================================== */
+
+.music-play-button,
+.music-back-button {
+  background:
+    rgba(20, 30, 120, 0.95);
+
+  color: white;
+
+  border: 4px solid black;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.music-play-button {
+  width: 180px;
+  height: 60px;
+
+  font-size: 24px;
+}
+
+.music-back-button {
+  position: absolute;
+
+  bottom: 40px;
+  left: 40px;
+
+  width: 220px;
+  height: 70px;
+
+  font-size: 28px;
+}
+
+.music-play-button:hover,
+.music-back-button:hover {
+  transform: scale(1.05);
+
+  background:
+    rgb(40, 60, 190);
+}
+
+/* BOTÃO ATIVO */
+
+.music-play-button.active-music {
+  background:
+    rgb(10, 15, 60);
+
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.5),
+    0 0 40px rgba(0,255,255,0.2);
+}
+
+/* ===================================================== */
+/* ===== VOLUME ===== */
+/* ===================================================== */
+
+.volume-area {
+  position: absolute;
+
+  top: 120px;
+  right: 70px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.volume-area label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#musicVolume {
+  width: 220px;
+}
+
+/* ===================================================== */
+/* ===== BARCO THORFINN ===== */
+/* ===================================================== */
+
+.boat-thorfinn {
+  position: absolute;
+
+  bottom: 90px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 500px;
+
+  z-index: 3;
+
+  animation:
+    boatFloat 5s ease-in-out infinite;
+}
+
+/* ===================================================== */
+/* ===== OCEANO MELHORADO ===== */
+/* ===================================================== */
+
+.ocean-back {
+  bottom: -130px;
+
+  background:
+    rgba(0, 40, 100, 0.7);
+
+  animation-duration: 20s;
+
+  filter: blur(4px);
+}
+
+.ocean-middle {
+  bottom: -105px;
+
+  background:
+    rgba(0, 70, 160, 0.6);
+
+  animation-duration: 14s;
+
+  filter: blur(2px);
+}
+
+.ocean-front {
+  bottom: -75px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 30, 120, 0.95),
+      rgba(0, 90, 200, 0.6)
+    );
+
+  animation-duration: 8s;
+
+  box-shadow:
+    0 0 60px rgba(0,120,255,0.35);
+}
+
+/* ===================================================== */
+/* ===== NOVAS ANIMAÇÕES ===== */
+/* ===================================================== */
+
+@keyframes musicWave {
+  0% {
+    background-position: 0px;
+  }
+
+  100% {
+    background-position: 1000px;
+  }
+}
+
+@keyframes boatFloat {
+  0% {
+    transform: translateX(-50%) translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-50%) translateY(-8px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(0px) rotate(1deg);
+  }
+
+  75% {
+    transform: translateX(-50%) translateY(8px) rotate(-1deg);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0px) rotate(0deg);
+  }
+}
