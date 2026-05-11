@@ -9,17 +9,17 @@
 </head>
 <body>
 
-  <!-- ===== MENU SUPERIOR ===== -->
-  <header class="top-menu">
-    <button>Rotina</button>
-    <button>Finanças</button>
-    <button>House Project</button>
-    <button>Meus livros</button>
-    <button>Lembretes</button>
-    <button>Estudos</button>
-    <button>Frases</button>
-    <button>Músicas</button>
-  </header>
+<!-- ===== MENU SUPERIOR ===== -->
+<header class="top-menu">
+  <button>Rotina</button>
+  <button>Finanças</button>
+  <button>House Project</button>
+  <button>Meus livros</button>
+  <button>Lembretes</button>
+  <button>Estudos</button>
+  <button>Frases</button>
+  <button id="musicButton">Músicas</button>
+</header>
 
 <!-- ===== TELA PRINCIPAL ===== -->
 <main id="mainScreen" class="screen main-screen">
@@ -54,14 +54,17 @@
   <img class="earth" src="images/Terra.png" alt="Planeta Terra">
   <img class="moon" src="images/Lua.webp" alt="Lua">
 
-  <!-- ===== OCEANO ===== -->
-  <div class="ocean-container">
-    <div class="ocean-layer ocean-back"></div>
-    <div class="ocean-layer ocean-middle"></div>
-    <div class="ocean-layer ocean-front"></div>
-  </div>
+<!-- ===== BARCO THORFINN ===== -->
+<img id="boatThorfinn" class="boat-thorfinn hidden" src="images/Boat.png" alt="Thorfinn no barco">
 
-</main>
+<!-- ===== OCEANO ===== -->
+<div class="ocean-container">
+  <div class="ocean-layer ocean-back"></div>
+  <div class="ocean-layer ocean-middle"></div>
+  <div class="ocean-layer ocean-front"></div>
+</div>
+  
+  </main>
 
 <!-- ===== TELA DA CONSTELAÇÃO ===== -->
 <section id="philosophyScreen" class="screen philosophy-screen hidden">
@@ -106,8 +109,45 @@
 
 </section>
 
-  <audio id="clickSound" src=""></audio>
-  <audio id="mysterySound" src=""></audio>
+  <!-- ===== TELA DE MÚSICAS ===== -->
+<section id="musicScreen" class="screen music-screen hidden">
+
+  <div class="music-title-area">
+    <span>Músicas</span>
+    <div class="music-wave"></div>
+  </div>
+
+  <div class="volume-area">
+    <label for="musicVolume">Volume</label>
+    <input id="musicVolume" type="range" min="0" max="100" value="60">
+  </div>
+
+  <div class="music-list">
+
+    <div class="music-row">
+      <span>Música 1</span>
+      <button class="music-play-button" data-music="audio/Dagger.mpeg" data-boat="true">Tocar</button>
+    </div>
+
+    <div class="music-row">
+      <span>Música 2</span>
+      <button class="music-play-button" data-music="audio/Intertwined.mpeg">Tocar</button>
+    </div>
+
+    <div class="music-row">
+      <span>Música 3</span>
+      <button class="music-play-button" data-music="audio/Thorfinn.mpeg">Tocar</button>
+    </div>
+
+  </div>
+
+  <button id="musicBackButton" class="music-back-button">Voltar</button>
+
+</section>
+
+<audio id="clickSound"></audio>
+<audio id="mysterySound"></audio>
+<audio id="mainMusic" loop></audio>
 
   <script src="js/script.js"></script>
 </body>
