@@ -11,30 +11,65 @@ IMPORTANTE:
 
 SEÇÕES:
 1. VARIÁVEIS
-2. SISTEMA CONSTELAÇÃO
-3. SISTEMA VOLTAR
+2. FUNÇÃO DE SOM DE CLIQUE
+3. SISTEMA CONSTELAÇÃO
+4. SISTEMA VOLTAR FILOSOFIA
+5. SISTEMA TELA DE MÚSICAS
+6. SISTEMA PLAYER DE MÚSICAS
 */
 
 /* ===================================================== */
 /* ===== 1. VARIÁVEIS ===== */
 /* ===================================================== */
 
-const constellation =
-document.getElementById("constellation");
+const constellation = document.getElementById("constellation");
 
-const mainScreen =
-document.getElementById("mainScreen");
+const mainScreen = document.getElementById("mainScreen");
 
-const philosophyScreen =
-document.getElementById("philosophyScreen");
+const philosophyScreen = document.getElementById("philosophyScreen");
 
-const backButton =
-document.getElementById("backButton");
+const backButton = document.getElementById("backButton");
+
+const musicButton = document.getElementById("musicButton");
+
+const musicScreen = document.getElementById("musicScreen");
+
+const musicBackButton = document.getElementById("musicBackButton");
+
+const mainMusic = document.getElementById("mainMusic");
+
+const musicVolume = document.getElementById("musicVolume");
+
+const boatThorfinn = document.getElementById("boatThorfinn");
+
+const allButtons = document.querySelectorAll("button");
+
+const musicPlayButtons = document.querySelectorAll(".music-play-button");
 
 let clicks = 0;
 
 /* ===================================================== */
-/* ===== 2. SISTEMA CONSTELAÇÃO ===== */
+/* ===== 2. FUNÇÃO DE SOM DE CLIQUE ===== */
+/* ===================================================== */
+
+function playClickSound() {
+  const clickAudio = document.getElementById("clickSound");
+
+  clickAudio.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3";
+  clickAudio.volume = 0.12;
+  clickAudio.currentTime = 0;
+  clickAudio.loop = false;
+  clickAudio.play();
+}
+
+allButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    playClickSound();
+  });
+});
+
+/* ===================================================== */
+/* ===== 3. SISTEMA CONSTELAÇÃO ===== */
 /* ===================================================== */
 
 constellation.addEventListener("click", () => {
@@ -47,13 +82,7 @@ constellation.addEventListener("click", () => {
     constellation.classList.remove("active");
   }, 220);
 
-  const clickAudio = document.getElementById("clickSound");
-
-  clickAudio.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3";
-  clickAudio.volume = 0.15;
-  clickAudio.currentTime = 0;
-  clickAudio.loop = false;
-  clickAudio.play();
+  playClickSound();
 
   if (clicks >= 3) {
 
@@ -65,7 +94,7 @@ constellation.addEventListener("click", () => {
     mysteryAudio.currentTime = 0;
     mysteryAudio.loop = false;
     mysteryAudio.src = "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3";
-    mysteryAudio.volume = 0.35;
+    mysteryAudio.volume = 0.28;
     mysteryAudio.play();
 
     setTimeout(() => {
@@ -78,7 +107,7 @@ constellation.addEventListener("click", () => {
 });
 
 /* ===================================================== */
-/* ===== 3. SISTEMA VOLTAR ===== */
+/* ===== 4. SISTEMA VOLTAR FILOSOFIA ===== */
 /* ===================================================== */
 
 backButton.addEventListener("click", () => {
@@ -86,5 +115,67 @@ backButton.addEventListener("click", () => {
   philosophyScreen.classList.add("hidden");
 
   mainScreen.classList.remove("hidden");
+
+});
+
+/* ===================================================== */
+/* ===== 5. SISTEMA TELA DE MÚSICAS ===== */
+/* ===================================================== */
+
+musicButton.addEventListener("click", () => {
+
+  mainScreen.classList.add("hidden");
+
+  philosophyScreen.classList.add("hidden");
+
+  musicScreen.classList.remove("hidden");
+
+});
+
+musicBackButton.addEventListener("click", () => {
+
+  musicScreen.classList.add("hidden");
+
+  mainScreen.classList.remove("hidden");
+
+});
+
+/* ===================================================== */
+/* ===== 6. SISTEMA PLAYER DE MÚSICAS ===== */
+/* ===================================================== */
+
+musicVolume.addEventListener("input", () => {
+
+  mainMusic.volume = musicVolume.value / 100;
+
+});
+
+musicPlayButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    const selectedMusic = button.getAttribute("data-music");
+
+    mainMusic.src = selectedMusic;
+
+    mainMusic.volume = musicVolume.value / 100;
+
+    mainMusic.loop = true;
+
+    mainMusic.play();
+
+    musicPlayButtons.forEach((otherButton) => {
+      otherButton.classList.remove("active-music");
+    });
+
+    button.classList.add("active-music");
+
+    if (button.getAttribute("data-boat") === "true") {
+      boatThorfinn.classList.remove("hidden");
+    } else {
+      boatThorfinn.classList.add("hidden");
+    }
+
+  });
 
 });
