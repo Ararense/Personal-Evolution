@@ -154,15 +154,32 @@ musicPlayButtons.forEach((button) => {
 
   button.addEventListener("click", () => {
 
-    const selectedMusic = button.getAttribute("data-music");
+    const selectedMusic =
+    button.getAttribute("data-music");
 
-    mainMusic.src = selectedMusic;
+    const isAlreadyPlaying =
+    button.classList.contains("active-music");
 
-    mainMusic.volume = musicVolume.value / 100;
+    /* ===================================== */
+    /* PARAR MÚSICA */
+    /* ===================================== */
 
-    mainMusic.loop = true;
+    if (isAlreadyPlaying) {
 
-    mainMusic.play();
+      mainMusic.pause();
+
+      mainMusic.currentTime = 0;
+
+      button.classList.remove("active-music");
+
+      boatThorfinn.classList.add("hidden");
+
+      return;
+    }
+
+    /* ===================================== */
+    /* TOCAR NOVA MÚSICA */
+    /* ===================================== */
 
     musicPlayButtons.forEach((otherButton) => {
       otherButton.classList.remove("active-music");
@@ -170,10 +187,29 @@ musicPlayButtons.forEach((button) => {
 
     button.classList.add("active-music");
 
-    if (button.getAttribute("data-boat") === "true") {
+    mainMusic.src = selectedMusic;
+
+    mainMusic.volume =
+    musicVolume.value / 100;
+
+    mainMusic.loop = true;
+
+    mainMusic.play();
+
+    /* ===================================== */
+    /* BARCO THORFINN */
+    /* ===================================== */
+
+    if (
+      selectedMusic.includes("Dagger")
+    ) {
+
       boatThorfinn.classList.remove("hidden");
+
     } else {
+
       boatThorfinn.classList.add("hidden");
+
     }
 
   });
