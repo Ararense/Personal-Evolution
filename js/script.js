@@ -41,45 +41,37 @@ constellation.addEventListener("click", () => {
 
   clicks++;
 
-  /* EFEITO VISUAL */
-
   constellation.classList.add("active");
 
   setTimeout(() => {
     constellation.classList.remove("active");
   }, 220);
 
-  /* SOM CLICK ESTRELA */
+  const clickAudio = document.getElementById("clickSound");
 
-  const clickAudio = new Audio(
-    "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3"
-  );
-
-  clickAudio.volume = 0.18;
-
+  clickAudio.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3";
+  clickAudio.volume = 0.15;
+  clickAudio.currentTime = 0;
+  clickAudio.loop = false;
   clickAudio.play();
-
-  /* APÓS 3 CLICKS */
 
   if (clicks >= 3) {
 
     clicks = 0;
 
+    const mysteryAudio = document.getElementById("mysterySound");
+
+    mysteryAudio.pause();
+    mysteryAudio.currentTime = 0;
+    mysteryAudio.loop = false;
+    mysteryAudio.src = "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3";
+    mysteryAudio.volume = 0.35;
+    mysteryAudio.play();
+
     setTimeout(() => {
-
-      const mysteryAudio = new Audio(
-        "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3"
-      );
-
-      mysteryAudio.volume = 0.35;
-
-      mysteryAudio.play();
-
       mainScreen.classList.add("hidden");
-
       philosophyScreen.classList.remove("hidden");
-
-    }, 500);
+    }, 700);
 
   }
 
