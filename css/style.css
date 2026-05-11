@@ -238,35 +238,73 @@ body::before {
 /* ===== 8. OCEANO ===== */
 /* ===================================================== */
 
-.ocean {
+.ocean-container {
   position: absolute;
 
   bottom: 0;
+  left: 0;
 
-  width: 200%;
-  height: 160px;
+  width: 100%;
+  height: 260px;
 
-  background: rgba(120, 160, 220, 0.8);
-
-  border-top: 4px solid black;
-
-  border-radius: 40%;
-
-  animation: waveMove 10s linear infinite;
+  overflow: hidden;
 }
 
-.ocean1 {
-  left: -10%;
-  opacity: 0.9;
+.ocean-layer {
+  position: absolute;
+
+  width: 220%;
+  height: 220px;
+
+  left: -40%;
+
+  border-radius: 45%;
+
+  animation: oceanMove linear infinite;
 }
 
-.ocean2 {
-  left: -20%;
-  bottom: -40px;
+/* FUNDO */
 
-  opacity: 0.5;
+.ocean-back {
+  bottom: -120px;
 
-  animation-duration: 14s;
+  background:
+    rgba(0, 70, 160, 0.45);
+
+  animation-duration: 18s;
+
+  filter: blur(3px);
+}
+
+/* MEIO */
+
+.ocean-middle {
+  bottom: -100px;
+
+  background:
+    rgba(0, 120, 255, 0.4);
+
+  animation-duration: 13s;
+
+  filter: blur(2px);
+}
+
+/* FRENTE */
+
+.ocean-front {
+  bottom: -80px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 120, 255, 0.85),
+      rgba(80, 180, 255, 0.5)
+    );
+
+  animation-duration: 9s;
+
+  box-shadow:
+    0 0 40px rgba(0, 180, 255, 0.4);
 }
 
 /* ===================================================== */
