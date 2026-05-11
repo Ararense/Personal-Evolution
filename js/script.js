@@ -41,45 +41,46 @@ constellation.addEventListener("click", () => {
 
   clicks++;
 
-  /* EFEITO CLICK */
+  /* EFEITO VISUAL */
 
   constellation.classList.add("active");
 
   setTimeout(() => {
     constellation.classList.remove("active");
-  }, 250);
+  }, 220);
 
-  /* SOM SIMPLES */
+  /* SOM CLICK ESTRELA */
 
-  const audio = new Audio(
-    "https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"
+  const clickAudio = new Audio(
+    "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3"
   );
 
-  audio.volume = 0.2;
+  clickAudio.volume = 0.18;
 
-  audio.play();
+  clickAudio.play();
 
   /* APÓS 3 CLICKS */
 
   if (clicks >= 3) {
 
-    const mystery = new Audio(
-      "https://assets.mixkit.co/active_storage/sfx/2515/2515-preview.mp3"
-    );
-
-    mystery.volume = 0.4;
-
-    mystery.play();
+    clicks = 0;
 
     setTimeout(() => {
+
+      const mysteryAudio = new Audio(
+        "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3"
+      );
+
+      mysteryAudio.volume = 0.35;
+
+      mysteryAudio.play();
 
       mainScreen.classList.add("hidden");
 
       philosophyScreen.classList.remove("hidden");
 
-      clicks = 0;
+    }, 500);
 
-    }, 900);
   }
 
 });
