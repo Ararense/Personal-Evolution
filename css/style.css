@@ -567,28 +567,28 @@ body::before {
 .music-title-area {
   position: absolute;
 
-  top: 40px;
+  top: 45px;
   left: 50%;
 
   transform: translateX(-50%);
 
-  width: 80%;
+  width: 82%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  gap: 14px;
+  gap: 22px;
 }
 
 .music-title-area span {
-  font-size: 58px;
+  font-size: 70px;
   font-weight: bold;
 
   color: white;
 
   text-shadow:
-    0 0 12px rgba(255,255,255,0.6);
+    0 0 18px rgba(255,255,255,0.75);
 }
 
 /* LINHA ONDA */
@@ -603,7 +603,7 @@ body::before {
     linear-gradient(
       90deg,
       transparent,
-      rgba(0,255,255,0.7),
+      rgba(0,255,255,0.8),
       transparent
     );
 
@@ -618,17 +618,17 @@ body::before {
 .music-list {
   position: absolute;
 
-  top: 180px;
+  top: 240px;
   left: 50%;
 
   transform: translateX(-50%);
 
-  width: 70%;
+  width: 74%;
 
   display: flex;
   flex-direction: column;
 
-  gap: 24px;
+  gap: 34px;
 }
 
 .music-row {
@@ -637,9 +637,9 @@ body::before {
   justify-content: space-between;
   align-items: center;
 
-  padding: 22px 30px;
+  padding: 34px 40px;
 
-  border-radius: 18px;
+  border-radius: 24px;
 
   background:
     rgba(20, 30, 80, 0.6);
@@ -648,10 +648,13 @@ body::before {
     2px solid rgba(255,255,255,0.08);
 
   backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 18px rgba(0,0,0,0.35);
 }
 
 .music-row span {
-  font-size: 30px;
+  font-size: 38px;
   font-weight: bold;
 }
 
@@ -674,22 +677,22 @@ body::before {
 }
 
 .music-play-button {
-  width: 180px;
-  height: 60px;
+  width: 210px;
+  height: 72px;
 
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .music-back-button {
   position: absolute;
 
-  bottom: 40px;
-  left: 40px;
+  bottom: 45px;
+  left: 45px;
 
-  width: 220px;
-  height: 70px;
+  width: 240px;
+  height: 78px;
 
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .music-play-button:hover,
@@ -707,8 +710,8 @@ body::before {
     rgb(10, 15, 60);
 
   box-shadow:
-    0 0 20px rgba(0,255,255,0.5),
-    0 0 40px rgba(0,255,255,0.2);
+    0 0 20px rgba(0,255,255,0.7),
+    0 0 45px rgba(0,255,255,0.3);
 }
 
 /* ===================================================== */
@@ -718,22 +721,22 @@ body::before {
 .volume-area {
   position: absolute;
 
-  top: 120px;
-  right: 70px;
+  top: 165px;
+  right: 85px;
 
   display: flex;
   align-items: center;
 
-  gap: 16px;
+  gap: 20px;
 }
 
 .volume-area label {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
 }
 
 #musicVolume {
-  width: 220px;
+  width: 240px;
 }
 
 /* ===================================================== */
