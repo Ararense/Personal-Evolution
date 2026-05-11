@@ -557,7 +557,28 @@ body::before {
   background:
     radial-gradient(circle at top, #070b25 0%, #020311 60%, #000000 100%);
 
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-bottom: 140px;
+}
+
+/* ===================================================== */
+/* ===== SCROLLBAR ===== */
+/* ===================================================== */
+
+.music-screen::-webkit-scrollbar {
+  width: 10px;
+}
+
+.music-screen::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.5);
+}
+
+.music-screen::-webkit-scrollbar-thumb {
+  background: rgba(0,255,255,0.35);
+
+  border-radius: 999px;
 }
 
 /* ===================================================== */
@@ -684,15 +705,24 @@ body::before {
 }
 
 .music-back-button {
-  position: absolute;
+  position: fixed;
 
-  bottom: 45px;
-  left: 45px;
+  bottom: 35px;
+  left: 35px;
 
   width: 240px;
   height: 78px;
 
   font-size: 32px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(35, 45, 150, 0.55);
+
+  backdrop-filter: blur(8px);
+
+  z-index: 20;
 }
 
 .music-play-button:hover,
