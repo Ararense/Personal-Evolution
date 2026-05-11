@@ -324,9 +324,15 @@ body::before {
   position: absolute;
   inset: 0;
 
+  overflow: hidden;
+
   background:
-    radial-gradient(circle at top, #090979 0%, #030324 45%, #000010 100%);
+    radial-gradient(circle at top, #090979 0%, #020220 45%, #000010 100%);
 }
+
+/* ===================================================== */
+/* ===== BOTÕES FILOSOFIA ===== */
+/* ===================================================== */
 
 .secret-buttons {
   position: absolute;
@@ -337,37 +343,119 @@ body::before {
   display: flex;
   flex-direction: column;
 
-  gap: 12px;
+  gap: 14px;
+
+  z-index: 5;
 }
 
 .secret-buttons button {
   width: 320px;
-  height: 75px;
+  height: 78px;
+
+  background: rgba(20, 166, 228, 0.92);
 
   border: 4px solid black;
 
-  background: #14a6e4;
-
   color: white;
 
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: bold;
 
   cursor: pointer;
+
+  transition: 0.25s;
 }
+
+.secret-buttons button:hover {
+  transform: scale(1.05);
+  background: rgb(50, 190, 255);
+}
+
+/* ===================================================== */
+/* ===== CONSTELAÇÃO GRANDE ===== */
+/* ===================================================== */
 
 .big-constellation {
   position: absolute;
 
-  right: 180px;
-  top: 80px;
+  right: 140px;
+  top: 40px;
 
-  width: 400px;
-  height: 500px;
+  width: 420px;
+  height: 520px;
 }
 
-.big-constellation svg {
+/* ESTRELAS */
+
+.big-star {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 10px white,
+    0 0 25px #00d9ff;
+}
+
+/* LINHA VERTICAL */
+
+.big-phi1 { top: 20px; left: 210px; }
+.big-phi2 { top: 80px; left: 210px; }
+.big-phi3 { top: 140px; left: 210px; }
+.big-phi4 { top: 200px; left: 210px; }
+.big-phi5 { top: 260px; left: 210px; }
+.big-phi6 { top: 320px; left: 210px; }
+.big-phi7 { top: 380px; left: 210px; }
+.big-phi8 { top: 440px; left: 210px; }
+
+/* CÍRCULO φ */
+
+.big-phi9  { top: 110px; left: 130px; }
+.big-phi10 { top: 70px; left: 165px; }
+.big-phi11 { top: 70px; left: 255px; }
+.big-phi12 { top: 110px; left: 290px; }
+.big-phi13 { top: 200px; left: 290px; }
+.big-phi14 { top: 240px; left: 130px; }
+
+/* ===================================================== */
+/* ===== LINHAS ANIMADAS ===== */
+/* ===================================================== */
+
+.phi-lines {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
+}
+
+.phi-line {
+  fill: none;
+
+  stroke: #00d9ff;
+  stroke-width: 4;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter:
+    drop-shadow(0 0 12px #00d9ff);
+
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+
+  animation:
+    drawLine 4s ease forwards;
+}
+
+.circle-line {
+  animation-delay: 0.4s;
 }
 
 /* ===================================================== */
