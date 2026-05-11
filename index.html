@@ -1,1 +1,75 @@
-<h1>Personal Evolution</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Evolution</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== MENU SUPERIOR ===== -->
+  <header class="top-menu">
+    <button>Rotina</button>
+    <button>Finanças</button>
+    <button>House Project</button>
+    <button>Meus livros</button>
+    <button>Lembretes</button>
+    <button>Estudos</button>
+    <button>Frases</button>
+    <button>Músicas</button>
+  </header>
+
+  <!-- ===== TELA PRINCIPAL ===== -->
+  <main id="mainScreen" class="screen main-screen">
+
+    <section class="left-buttons">
+      <button>Meu Diário</button>
+      <button>Metas</button>
+      <button>Profile</button>
+    </section>
+
+    <section id="constellation" class="constellation">
+      <div class="star s1"></div>
+      <div class="star s2"></div>
+      <div class="star s3"></div>
+      <div class="star s4"></div>
+      <div class="star s5"></div>
+      <div class="star s6"></div>
+      <div class="star s7"></div>
+    </section>
+
+    <div class="earth"></div>
+    <div class="moon"></div>
+
+    <div class="ocean ocean1"></div>
+    <div class="ocean ocean2"></div>
+  </main>
+
+  <!-- ===== TELA DA CONSTELAÇÃO ===== -->
+  <section id="philosophyScreen" class="screen philosophy-screen hidden">
+
+    <div class="secret-buttons">
+      <button>A verdade da existência</button>
+      <button id="backButton">Voltar</button>
+    </div>
+
+    <div class="big-constellation">
+      <svg viewBox="0 0 300 400">
+        <polyline points="130,30 120,120 190,130 190,40 130,30 200,350"
+          fill="none"
+          stroke="#00d9ff"
+          stroke-width="3"
+        />
+      </svg>
+    </div>
+
+  </section>
+
+  <audio id="clickSound" src=""></audio>
+  <audio id="mysterySound" src=""></audio>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
