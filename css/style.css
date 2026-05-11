@@ -153,14 +153,11 @@ body::before {
 .constellation {
   position: absolute;
 
-  left: 32%;
+  left: 38%;
   top: 20%;
 
-  width: 360px;
+  width: 260px;
   height: 360px;
-
-  border: 5px solid red;
-  border-radius: 50%;
 
   cursor: pointer;
 
@@ -168,31 +165,40 @@ body::before {
 }
 
 .constellation.active {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
 .star {
   position: absolute;
 
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
 
   background: white;
 
   border-radius: 50%;
 
-  box-shadow: 0 0 12px white;
+  box-shadow:
+    0 0 8px white,
+    0 0 18px #00d9ff;
 }
 
 /* FORMATO φ */
 
-.s1 { top: 40px; left: 170px; }
-.s2 { top: 90px; left: 170px; }
-.s3 { top: 140px; left: 170px; }
-.s4 { top: 190px; left: 170px; }
-.s5 { top: 120px; left: 140px; }
-.s6 { top: 120px; left: 200px; }
-.s7 { top: 240px; left: 170px; }
+.phi1 { top: 25px; left: 130px; }
+.phi2 { top: 70px; left: 130px; }
+.phi3 { top: 115px; left: 130px; }
+.phi4 { top: 160px; left: 130px; }
+.phi5 { top: 205px; left: 130px; }
+.phi6 { top: 250px; left: 130px; }
+.phi7 { top: 295px; left: 130px; }
+
+.phi8 { top: 105px; left: 75px; }
+.phi9 { top: 80px; left: 105px; }
+.phi10 { top: 80px; left: 155px; }
+.phi11 { top: 105px; left: 185px; }
+.phi12 { top: 155px; left: 185px; }
+.phi13 { top: 180px; left: 75px; }
 
 /* ===================================================== */
 /* ===== 7. PLANETAS ===== */
