@@ -63,25 +63,48 @@
 
 </main>
 
-  <!-- ===== TELA DA CONSTELAÇÃO ===== -->
-  <section id="philosophyScreen" class="screen philosophy-screen hidden">
+<!-- ===== TELA DA CONSTELAÇÃO ===== -->
+<section id="philosophyScreen" class="screen philosophy-screen hidden">
 
-    <div class="secret-buttons">
-      <button>A verdade da existência</button>
-      <button id="backButton">Voltar</button>
-    </div>
+  <!-- ===== BOTÕES DA TELA FILOSOFIA ===== -->
+  <div class="secret-buttons">
+    <button>A verdade da existência</button>
+    <button id="backButton">Voltar</button>
+  </div>
 
-    <div class="big-constellation">
-      <svg viewBox="0 0 300 400">
-        <polyline points="130,30 120,120 190,130 190,40 130,30 200,350"
-          fill="none"
-          stroke="#00d9ff"
-          stroke-width="3"
-        />
-      </svg>
-    </div>
+  <!-- ===== CONSTELAÇÃO GRANDE φ ===== -->
+  <div class="big-constellation">
 
-  </section>
+    <div class="big-star big-phi1"></div>
+    <div class="big-star big-phi2"></div>
+    <div class="big-star big-phi3"></div>
+    <div class="big-star big-phi4"></div>
+    <div class="big-star big-phi5"></div>
+    <div class="big-star big-phi6"></div>
+    <div class="big-star big-phi7"></div>
+    <div class="big-star big-phi8"></div>
+    <div class="big-star big-phi9"></div>
+    <div class="big-star big-phi10"></div>
+    <div class="big-star big-phi11"></div>
+    <div class="big-star big-phi12"></div>
+    <div class="big-star big-phi13"></div>
+    <div class="big-star big-phi14"></div>
+
+    <svg class="phi-lines" viewBox="0 0 360 460">
+      <path class="phi-line vertical-line"
+        d="M180 25 L180 430"
+      />
+
+      <path class="phi-line circle-line"
+        d="M180 85
+           C70 85, 70 250, 180 250
+           C290 250, 290 85, 180 85"
+      />
+    </svg>
+
+  </div>
+
+</section>
 
   <audio id="clickSound" src=""></audio>
   <audio id="mysterySound" src=""></audio>
