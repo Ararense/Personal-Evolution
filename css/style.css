@@ -207,73 +207,31 @@ body::before {
 .earth {
   position: absolute;
 
-  right: 260px;
+  right: 180px;
   top: 120px;
 
-  width: 170px;
-  height: 170px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(circle at 30% 30%, #9ed1ff, #4e6ea0);
-
-  border: 5px solid black;
+  width: 260px;
 
   animation:
-    floatPlanet 5s ease-in-out infinite;
-}
+    floatPlanet 6s ease-in-out infinite;
 
-.earth::before {
-  content: "";
-
-  position: absolute;
-
-  width: 55px;
-  height: 80px;
-
-  background: #2fc14d;
-
-  border-radius: 50%;
-
-  left: 25px;
-  top: 30px;
-}
-
-.earth::after {
-  content: "";
-
-  position: absolute;
-
-  width: 65px;
-  height: 90px;
-
-  background: #2fc14d;
-
-  border-radius: 50%;
-
-  right: 20px;
-  top: 45px;
+  filter:
+    drop-shadow(0 0 25px rgba(0, 140, 255, 0.6));
 }
 
 .moon {
   position: absolute;
 
-  right: 120px;
-  top: 220px;
+  right: 80px;
+  top: 280px;
 
-  width: 90px;
-  height: 90px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(circle at 30% 30%, #bdbdbd, #727272);
-
-  border: 4px solid black;
+  width: 110px;
 
   animation:
-    floatPlanet 4s ease-in-out infinite;
+    floatPlanet 4.5s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 18px rgba(255,255,255,0.4));
 }
 
 /* ===================================================== */
