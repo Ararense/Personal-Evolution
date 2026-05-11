@@ -1,3 +1,435 @@
+/* ===================================================== */
+/* ===== PERSONAL EVOLUTION - STYLE ORGANIZADO ===== */
+/* ===================================================== */
+
+/*
+IMPORTANTE:
+
+- NÃO REMOVER OS TÍTULOS DAS SEÇÕES
+- CADA SISTEMA POSSUI SUA PRÓPRIA ÁREA
+- FUTURAS ALTERAÇÕES SERÃO FEITAS APENAS
+  NA SEÇÃO NECESSÁRIA
+
+SEÇÕES:
+1. RESET
+2. BODY
+3. ESTRELAS DE FUNDO
+4. MENU SUPERIOR
+5. BOTÕES ESQUERDA
+6. CONSTELAÇÃO
+7. PLANETAS
+8. OCEANO
+9. TELA FILOSOFIA
+10. ANIMAÇÕES
+*/
+
+/* ===================================================== */
+/* ===== 1. RESET ===== */
+/* ===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================================================== */
+/* ===== 2. BODY ===== */
+/* ===================================================== */
+
 body {
-    background: black;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, #090979 0%, #030324 45%, #000010 100%);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  color: white;
+}
+
+/* ===================================================== */
+/* ===== 3. ESTRELAS DE FUNDO ===== */
+/* ===================================================== */
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 2px, transparent 2px);
+
+  background-size:
+    120px 120px,
+    180px 180px,
+    260px 260px;
+
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* ===================================================== */
+/* ===== 4. MENU SUPERIOR ===== */
+/* ===================================================== */
+
+.top-menu {
+  width: 100%;
+  height: 75px;
+
+  background: rgba(70, 80, 255, 0.6);
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 0 16px;
+
+  border-bottom: 4px solid black;
+}
+
+.top-menu button {
+  background: rgba(20, 30, 120, 0.9);
+
+  color: white;
+
+  border: 4px solid black;
+
+  padding: 12px 20px;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.top-menu button:hover {
+  transform: scale(1.05);
+  background: rgb(40, 60, 190);
+}
+
+/* ===================================================== */
+/* ===== 5. BOTÕES ESQUERDA ===== */
+/* ===================================================== */
+
+.left-buttons {
+  position: absolute;
+
+  top: 140px;
+  left: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.left-buttons button {
+  width: 280px;
+  height: 75px;
+
+  background: #88a8d8;
+
+  border: 4px solid black;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.left-buttons button:hover {
+  transform: scale(1.03);
+}
+
+/* ===================================================== */
+/* ===== 6. CONSTELAÇÃO ===== */
+/* ===================================================== */
+
+.constellation {
+  position: absolute;
+
+  left: 32%;
+  top: 20%;
+
+  width: 360px;
+  height: 360px;
+
+  border: 5px solid red;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: 0.4s;
+}
+
+.constellation.active {
+  transform: scale(1.1);
+}
+
+.star {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 12px white;
+}
+
+/* FORMATO φ */
+
+.s1 { top: 40px; left: 170px; }
+.s2 { top: 90px; left: 170px; }
+.s3 { top: 140px; left: 170px; }
+.s4 { top: 190px; left: 170px; }
+.s5 { top: 120px; left: 140px; }
+.s6 { top: 120px; left: 200px; }
+.s7 { top: 240px; left: 170px; }
+
+/* ===================================================== */
+/* ===== 7. PLANETAS ===== */
+/* ===================================================== */
+
+.earth {
+  position: absolute;
+
+  right: 260px;
+  top: 120px;
+
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 30% 30%, #9ed1ff, #4e6ea0);
+
+  border: 5px solid black;
+
+  animation:
+    floatPlanet 5s ease-in-out infinite;
+}
+
+.earth::before {
+  content: "";
+
+  position: absolute;
+
+  width: 55px;
+  height: 80px;
+
+  background: #2fc14d;
+
+  border-radius: 50%;
+
+  left: 25px;
+  top: 30px;
+}
+
+.earth::after {
+  content: "";
+
+  position: absolute;
+
+  width: 65px;
+  height: 90px;
+
+  background: #2fc14d;
+
+  border-radius: 50%;
+
+  right: 20px;
+  top: 45px;
+}
+
+.moon {
+  position: absolute;
+
+  right: 120px;
+  top: 220px;
+
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 30% 30%, #bdbdbd, #727272);
+
+  border: 4px solid black;
+
+  animation:
+    floatPlanet 4s ease-in-out infinite;
+}
+
+/* ===================================================== */
+/* ===== 8. OCEANO ===== */
+/* ===================================================== */
+
+.ocean {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 200%;
+  height: 160px;
+
+  background: rgba(120, 160, 220, 0.8);
+
+  border-top: 4px solid black;
+
+  border-radius: 40%;
+
+  animation: waveMove 10s linear infinite;
+}
+
+.ocean1 {
+  left: -10%;
+  opacity: 0.9;
+}
+
+.ocean2 {
+  left: -20%;
+  bottom: -40px;
+
+  opacity: 0.5;
+
+  animation-duration: 14s;
+}
+
+/* ===================================================== */
+/* ===== 9. TELA FILOSOFIA ===== */
+/* ===================================================== */
+
+.screen {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.philosophy-screen {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top, #090979 0%, #030324 45%, #000010 100%);
+}
+
+.secret-buttons {
+  position: absolute;
+
+  left: 40px;
+  top: 160px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.secret-buttons button {
+  width: 320px;
+  height: 75px;
+
+  border: 4px solid black;
+
+  background: #14a6e4;
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.big-constellation {
+  position: absolute;
+
+  right: 180px;
+  top: 80px;
+
+  width: 400px;
+  height: 500px;
+}
+
+.big-constellation svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===================================================== */
+/* ===== 10. ANIMAÇÕES ===== */
+/* ===================================================== */
+
+@keyframes floatPlanet {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+/* ===================================================== */
+/* ===== RESPONSIVIDADE ===== */
+/* ===================================================== */
+
+@media (max-width: 1200px) {
+
+  .top-menu {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+  }
+
+  .top-menu button {
+    font-size: 18px;
+  }
+
+  .left-buttons button {
+    width: 220px;
+    font-size: 22px;
+  }
+
+  .constellation {
+    left: 25%;
+    width: 260px;
+    height: 260px;
+  }
+
+  .earth {
+    width: 120px;
+    height: 120px;
+  }
+
+  .moon {
+    width: 70px;
+    height: 70px;
+  }
 }
