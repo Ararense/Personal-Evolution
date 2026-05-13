@@ -866,3 +866,104 @@ body::before {
     transform: translateX(-50%) translateY(0px) rotate(0deg);
   }
 }
+
+/* ===================================================== */
+/* ===== CENÁRIOS DAS MÚSICAS NA TELA PRINCIPAL ===== */
+/* ===================================================== */
+
+.music-sky-background {
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../images/Sky.png");
+  background-size: cover;
+  background-position: center;
+
+  z-index: 0;
+}
+
+.main-screen.music-mode .constellation,
+.main-screen.music-mode .earth,
+.main-screen.music-mode .moon {
+  display: none;
+}
+
+/* ===================================================== */
+/* ===== MODO INTERWINED ===== */
+/* ===================================================== */
+
+.main-screen.interwined-mode .ocean-front {
+  background: linear-gradient(
+    to top,
+    rgba(90, 0, 0, 0.95),
+    rgba(210, 20, 20, 0.65)
+  );
+}
+
+.main-screen.interwined-mode .ocean-middle {
+  background: rgba(120, 0, 0, 0.75);
+}
+
+.main-screen.interwined-mode .ocean-back {
+  background: rgba(60, 0, 0, 0.8);
+}
+
+/* ===================================================== */
+/* ===== BARCOS INTERWINED ===== */
+/* ===================================================== */
+
+.music-boat {
+  position: absolute;
+
+  width: 430px;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+.boat-thors {
+  bottom: 95px;
+  left: 120px;
+
+  animation: boatFloatThors 4.8s ease-in-out infinite;
+}
+
+.boat-askeladd {
+  bottom: 85px;
+  right: 360px;
+
+  animation: boatFloatAskeladd 6.2s ease-in-out infinite;
+}
+
+/* ===================================================== */
+/* ===== ANIMAÇÕES BARCOS INTERWINED ===== */
+/* ===================================================== */
+
+@keyframes boatFloatThors {
+  0% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+}
+
+@keyframes boatFloatAskeladd {
+  0% {
+    transform: translateY(0px) rotate(2deg);
+  }
+
+  50% {
+    transform: translateY(10px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(2deg);
+  }
+}
