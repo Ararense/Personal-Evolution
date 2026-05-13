@@ -22,29 +22,50 @@ SEÇÕES:
 /* ===== 1. VARIÁVEIS ===== */
 /* ===================================================== */
 
-const constellation = document.getElementById("constellation");
+const constellation =
+document.getElementById("constellation");
 
-const mainScreen = document.getElementById("mainScreen");
+const mainScreen =
+document.getElementById("mainScreen");
 
-const philosophyScreen = document.getElementById("philosophyScreen");
+const philosophyScreen =
+document.getElementById("philosophyScreen");
 
-const backButton = document.getElementById("backButton");
+const backButton =
+document.getElementById("backButton");
 
-const musicButton = document.getElementById("musicButton");
+const musicButton =
+document.getElementById("musicButton");
 
-const musicScreen = document.getElementById("musicScreen");
+const musicScreen =
+document.getElementById("musicScreen");
 
-const musicBackButton = document.getElementById("musicBackButton");
+const musicBackButton =
+document.getElementById("musicBackButton");
 
-const mainMusic = document.getElementById("mainMusic");
+const mainMusic =
+document.getElementById("mainMusic");
 
-const musicVolume = document.getElementById("musicVolume");
+const musicVolume =
+document.getElementById("musicVolume");
 
-const boatThorfinn = document.getElementById("boatThorfinn");
+const boatThorfinn =
+document.getElementById("boatThorfinn");
 
-const allButtons = document.querySelectorAll("button");
+const musicSkyBackground =
+document.getElementById("musicSkyBackground");
 
-const musicPlayButtons = document.querySelectorAll(".music-play-button");
+const boatThors =
+document.getElementById("thorsBoat");
+
+const boatAskeladd =
+document.getElementById("askeladdBoat");
+
+const allButtons =
+document.querySelectorAll("button");
+
+const musicPlayButtons =
+document.querySelectorAll(".music-play-button");
 
 let clicks = 0;
 
@@ -53,19 +74,30 @@ let clicks = 0;
 /* ===================================================== */
 
 function playClickSound() {
-  const clickAudio = document.getElementById("clickSound");
 
-  clickAudio.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3";
+  const clickAudio =
+  document.getElementById("clickSound");
+
+  clickAudio.src =
+  "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3";
+
   clickAudio.volume = 0.12;
+
   clickAudio.currentTime = 0;
+
   clickAudio.loop = false;
+
   clickAudio.play();
 }
 
 allButtons.forEach((button) => {
+
   button.addEventListener("click", () => {
+
     playClickSound();
+
   });
+
 });
 
 /* ===================================================== */
@@ -79,7 +111,9 @@ constellation.addEventListener("click", () => {
   constellation.classList.add("active");
 
   setTimeout(() => {
+
     constellation.classList.remove("active");
+
   }, 220);
 
   playClickSound();
@@ -88,18 +122,28 @@ constellation.addEventListener("click", () => {
 
     clicks = 0;
 
-    const mysteryAudio = document.getElementById("mysterySound");
+    const mysteryAudio =
+    document.getElementById("mysterySound");
 
     mysteryAudio.pause();
+
     mysteryAudio.currentTime = 0;
+
     mysteryAudio.loop = false;
-    mysteryAudio.src = "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3";
+
+    mysteryAudio.src =
+    "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3";
+
     mysteryAudio.volume = 0.28;
+
     mysteryAudio.play();
 
     setTimeout(() => {
+
       mainScreen.classList.add("hidden");
+
       philosophyScreen.classList.remove("hidden");
+
     }, 700);
 
   }
@@ -145,76 +189,41 @@ musicBackButton.addEventListener("click", () => {
 /* ===================================================== */
 
 musicVolume.addEventListener("input", () => {
-  mainMusic.volume = musicVolume.value / 100;
+
+  mainMusic.volume =
+  musicVolume.value / 100;
+
 });
+
+/* RESETAR CENÁRIO */
+
+function resetMusicScenario() {
+
+  boatThorfinn.classList.add("hidden");
+
+  boatThors.classList.add("hidden");
+
+  boatAskeladd.classList.add("hidden");
+
+  musicSkyBackground.classList.add("hidden");
+
+  mainScreen.classList.remove(
+    "music-mode",
+    "dagger-mode",
+    "interwined-mode"
+  );
+
+}
 
 musicPlayButtons.forEach((button) => {
 
   button.addEventListener("click", () => {
 
-    const selectedMusic = button.getAttribute("data-music");
+    const selectedMusic =
+    button.getAttribute("data-music");
 
-    const isAlreadyPlaying = button.classList.contains("active-music");
-
-    const musicSkyBackground = document.getElementById("musicSkyBackground");
-
-    const boatThors = document.getElementById("boatThors");
-
-    const boatAskeladd = document.getElementById("boatAskeladd");
-
-    function resetMusicScenario() {
-      boatThorfinn.classList.add("hidden");
-      boatThors.classList.add("hidden");
-      boatAskeladd.classList.add("hidden");
-      musicSkyBackground.classList.add("hidden");
-
-      mainScreen.classList.remove(
-        "music-mode",
-        "dagger-mode",
-        "interwined-mode"
-      );
-    }
-
-    if (isAlreadyPlaying) {
-      mainMusic.pause();
-      mainMusic.currentTime = 0;
-
-      button.classList.remove("active-music");
-
-      resetMusicScenario();
-
-      return;
-    }
-
-    musicPlayButtons.forEach((otherButton) => {
-      otherButton.classList.remove("active-music");
-    });
-
-    button.classList.add("active-music");
-
-    mainMusic.src = selectedMusic;
-    mainMusic.volume = musicVolume.value / 100;
-    mainMusic.loop = true;
-    mainMusic.play();
-
-    resetMusicScenario();
-
-    if (selectedMusic.includes("Dagger")) {
-      mainScreen.classList.add("music-mode", "dagger-mode");
-      musicSkyBackground.classList.remove("hidden");
-      boatThorfinn.classList.remove("hidden");
-    }
-
-    if (selectedMusic.includes("Intertwined")) {
-      mainScreen.classList.add("music-mode", "interwined-mode");
-      musicSkyBackground.classList.remove("hidden");
-      boatThors.classList.remove("hidden");
-      boatAskeladd.classList.remove("hidden");
-    }
-
-  });
-
-});
+    const isAlreadyPlaying =
+    button.classList.contains("active-music");
 
     /* ===================================== */
     /* PARAR MÚSICA */
@@ -228,20 +237,26 @@ musicPlayButtons.forEach((button) => {
 
       button.classList.remove("active-music");
 
-      boatThorfinn.classList.add("hidden");
+      resetMusicScenario();
 
       return;
     }
 
     /* ===================================== */
-    /* TOCAR NOVA MÚSICA */
+    /* REMOVER BOTÕES ATIVOS */
     /* ===================================== */
 
     musicPlayButtons.forEach((otherButton) => {
+
       otherButton.classList.remove("active-music");
+
     });
 
     button.classList.add("active-music");
+
+    /* ===================================== */
+    /* TOCAR MÚSICA */
+    /* ===================================== */
 
     mainMusic.src = selectedMusic;
 
@@ -252,66 +267,51 @@ musicPlayButtons.forEach((button) => {
 
     mainMusic.play();
 
-/* ===================================== */
-/* CENÁRIOS DAS MÚSICAS */
-/* ===================================== */
+    /* ===================================== */
+    /* RESETAR CENÁRIO */
+    /* ===================================== */
 
-const musicSkyBackground =
-document.getElementById("musicSkyBackground");
+    resetMusicScenario();
 
-const boatThors =
-document.getElementById("boatThors");
+    /* ===================================== */
+    /* DAGGER */
+    /* ===================================== */
 
-const boatAskeladd =
-document.getElementById("boatAskeladd");
+    if (
+      selectedMusic.includes("Dagger")
+    ) {
 
-/* RESETAR */
+      mainScreen.classList.add(
+        "music-mode",
+        "dagger-mode"
+      );
 
-boatThorfinn.classList.add("hidden");
+      musicSkyBackground.classList.remove("hidden");
 
-boatThors.classList.add("hidden");
+      boatThorfinn.classList.remove("hidden");
 
-boatAskeladd.classList.add("hidden");
+    }
 
-mainScreen.classList.remove(
-  "music-mode",
-  "dagger-mode",
-  "interwined-mode"
-);
+    /* ===================================== */
+    /* INTERWINED */
+    /* ===================================== */
 
-/* ===================================== */
-/* DAGGER */
-/* ===================================== */
+    else if (
+      selectedMusic.includes("Intertwined")
+    ) {
 
-if (
-  selectedMusic.includes("Dagger")
-) {
+      mainScreen.classList.add(
+        "music-mode",
+        "interwined-mode"
+      );
 
-  mainScreen.classList.add(
-    "music-mode",
-    "dagger-mode"
-  );
+      musicSkyBackground.classList.remove("hidden");
 
-  boatThorfinn.classList.remove("hidden");
-}
+      boatThors.classList.remove("hidden");
 
-/* ===================================== */
-/* INTERWINED */
-/* ===================================== */
+      boatAskeladd.classList.remove("hidden");
 
-else if (
-  selectedMusic.includes("Intertwined")
-) {
-
-  mainScreen.classList.add(
-    "music-mode",
-    "interwined-mode"
-  );
-
-  boatThors.classList.remove("hidden");
-
-  boatAskeladd.classList.remove("hidden");
-}
+    }
 
   });
 
