@@ -197,20 +197,64 @@ musicPlayButtons.forEach((button) => {
     mainMusic.play();
 
 /* ===================================== */
-/* BARCO THORFINN */
+/* CENÁRIOS DAS MÚSICAS */
 /* ===================================== */
 
-const hasBoat =
-button.getAttribute("data-boat");
+const musicSkyBackground =
+document.getElementById("musicSkyBackground");
 
-if (hasBoat === "true") {
+const boatThors =
+document.getElementById("boatThors");
+
+const boatAskeladd =
+document.getElementById("boatAskeladd");
+
+/* RESETAR */
+
+boatThorfinn.classList.add("hidden");
+
+boatThors.classList.add("hidden");
+
+boatAskeladd.classList.add("hidden");
+
+mainScreen.classList.remove(
+  "music-mode",
+  "dagger-mode",
+  "interwined-mode"
+);
+
+/* ===================================== */
+/* DAGGER */
+/* ===================================== */
+
+if (
+  selectedMusic.includes("Dagger")
+) {
+
+  mainScreen.classList.add(
+    "music-mode",
+    "dagger-mode"
+  );
 
   boatThorfinn.classList.remove("hidden");
+}
 
-} else {
+/* ===================================== */
+/* INTERWINED */
+/* ===================================== */
 
-  boatThorfinn.classList.add("hidden");
+else if (
+  selectedMusic.includes("Intertwined")
+) {
 
+  mainScreen.classList.add(
+    "music-mode",
+    "interwined-mode"
+  );
+
+  boatThors.classList.remove("hidden");
+
+  boatAskeladd.classList.remove("hidden");
 }
 
   });
