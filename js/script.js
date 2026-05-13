@@ -196,21 +196,22 @@ musicPlayButtons.forEach((button) => {
 
     mainMusic.play();
 
-    /* ===================================== */
-    /* BARCO THORFINN */
-    /* ===================================== */
+/* ===================================== */
+/* BARCO THORFINN */
+/* ===================================== */
 
-    if (
-      selectedMusic.includes("Dagger")
-    ) {
+const hasBoat =
+button.getAttribute("data-boat");
 
-      boatThorfinn.classList.remove("hidden");
+if (hasBoat === "true") {
 
-    } else {
+  boatThorfinn.classList.remove("hidden");
 
-      boatThorfinn.classList.add("hidden");
+} else {
 
-    }
+  boatThorfinn.classList.add("hidden");
+
+}
 
   });
 
