@@ -3,236 +3,156 @@
 /* ===================================================== */
 
 /*
-IMPORTANTE:
-
-- NÃO REMOVER OS TÍTULOS DAS SEÇÕES
-- FUTURAS ALTERAÇÕES SERÃO FEITAS
-  APENAS NAS PARTES NECESSÁRIAS
-
 SEÇÕES:
 1. VARIÁVEIS
-2. FUNÇÃO DE SOM DE CLIQUE
-3. SISTEMA CONSTELAÇÃO
-4. SISTEMA VOLTAR FILOSOFIA
-5. SISTEMA TELA DE MÚSICAS
-6. SISTEMA PLAYER DE MÚSICAS
+2. SOM DE CLIQUE
+3. CONSTELAÇÃO
+4. VOLTAR FILOSOFIA
+5. TELA DE MÚSICAS
+6. PLAYER DE MÚSICAS
 */
 
 /* ===================================================== */
 /* ===== 1. VARIÁVEIS ===== */
 /* ===================================================== */
 
-const constellation =
-document.getElementById("constellation");
+const constellation = document.getElementById("constellation");
+const mainScreen = document.getElementById("mainScreen");
+const philosophyScreen = document.getElementById("philosophyScreen");
+const backButton = document.getElementById("backButton");
+const musicButton = document.getElementById("musicButton");
+const musicScreen = document.getElementById("musicScreen");
+const musicBackButton = document.getElementById("musicBackButton");
 
-const mainScreen =
-document.getElementById("mainScreen");
+const mainMusic = document.getElementById("mainMusic");
+const musicVolume = document.getElementById("musicVolume");
 
-const philosophyScreen =
-document.getElementById("philosophyScreen");
+const boatThorfinn = document.getElementById("boatThorfinn");
+const musicSkyBackground = document.getElementById("musicSkyBackground");
+const boatThors = document.getElementById("thorsBoat");
+const boatAskeladd = document.getElementById("askeladdBoat");
 
-const backButton =
-document.getElementById("backButton");
-
-const musicButton =
-document.getElementById("musicButton");
-
-const musicScreen =
-document.getElementById("musicScreen");
-
-const musicBackButton =
-document.getElementById("musicBackButton");
-
-const mainMusic =
-document.getElementById("mainMusic");
-
-const musicVolume =
-document.getElementById("musicVolume");
-
-const boatThorfinn =
-document.getElementById("boatThorfinn");
-
-const musicSkyBackground =
-document.getElementById("musicSkyBackground");
-
-const boatThors =
-document.getElementById("thorsBoat");
-
-const boatAskeladd =
-document.getElementById("askeladdBoat");
-
-const allButtons =
-document.querySelectorAll("button");
-
-const musicPlayButtons =
-document.querySelectorAll(".music-play-button");
+const musicPlayButtons = document.querySelectorAll(".music-play-button");
+const allButtons = document.querySelectorAll("button");
 
 let clicks = 0;
 
 /* ===================================================== */
-/* ===== 2. FUNÇÃO DE SOM DE CLIQUE ===== */
+/* ===== 2. SOM DE CLIQUE ===== */
 /* ===================================================== */
 
 function playClickSound() {
+  const clickAudio = document.getElementById("clickSound");
 
-  const clickAudio =
-  document.getElementById("clickSound");
+  if (!clickAudio) return;
 
-  clickAudio.src =
-  "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3";
-
+  clickAudio.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3";
   clickAudio.volume = 0.12;
-
   clickAudio.currentTime = 0;
-
   clickAudio.loop = false;
-
   clickAudio.play();
 }
 
 allButtons.forEach((button) => {
-
-  button.addEventListener("click", () => {
-
-    playClickSound();
-
-  });
-
+  button.addEventListener("click", playClickSound);
 });
 
 /* ===================================================== */
-/* ===== 3. SISTEMA CONSTELAÇÃO ===== */
+/* ===== 3. CONSTELAÇÃO ===== */
 /* ===================================================== */
 
-constellation.addEventListener("click", () => {
+if (constellation) {
+  constellation.addEventListener("click", () => {
+    clicks++;
 
-  clicks++;
-
-  constellation.classList.add("active");
-
-  setTimeout(() => {
-
-    constellation.classList.remove("active");
-
-  }, 220);
-
-  playClickSound();
-
-  if (clicks >= 3) {
-
-    clicks = 0;
-
-    const mysteryAudio =
-    document.getElementById("mysterySound");
-
-    mysteryAudio.pause();
-
-    mysteryAudio.currentTime = 0;
-
-    mysteryAudio.loop = false;
-
-    mysteryAudio.src =
-    "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3";
-
-    mysteryAudio.volume = 0.28;
-
-    mysteryAudio.play();
+    constellation.classList.add("active");
 
     setTimeout(() => {
+      constellation.classList.remove("active");
+    }, 220);
 
-      mainScreen.classList.add("hidden");
+    if (clicks >= 3) {
+      clicks = 0;
 
-      philosophyScreen.classList.remove("hidden");
+      const mysteryAudio = document.getElementById("mysterySound");
 
-    }, 700);
+      if (mysteryAudio) {
+        mysteryAudio.pause();
+        mysteryAudio.currentTime = 0;
+        mysteryAudio.loop = false;
+        mysteryAudio.src = "https://cdn.pixabay.com/download/audio/2022/10/16/audio_12b0f58ff0.mp3";
+        mysteryAudio.volume = 0.28;
+        mysteryAudio.play();
+      }
 
-  }
-
-});
-
-/* ===================================================== */
-/* ===== 4. SISTEMA VOLTAR FILOSOFIA ===== */
-/* ===================================================== */
-
-backButton.addEventListener("click", () => {
-
-  philosophyScreen.classList.add("hidden");
-
-  mainScreen.classList.remove("hidden");
-
-});
-
-/* ===================================================== */
-/* ===== 5. SISTEMA TELA DE MÚSICAS ===== */
-/* ===================================================== */
-
-musicButton.addEventListener("click", () => {
-
-  mainScreen.classList.add("hidden");
-
-  philosophyScreen.classList.add("hidden");
-
-  musicScreen.classList.remove("hidden");
-
-});
-
-musicBackButton.addEventListener("click", () => {
-
-  musicScreen.classList.add("hidden");
-
-  mainScreen.classList.remove("hidden");
-
-});
+      setTimeout(() => {
+        mainScreen.classList.add("hidden");
+        philosophyScreen.classList.remove("hidden");
+      }, 700);
+    }
+  });
+}
 
 /* ===================================================== */
-/* ===== 6. SISTEMA PLAYER DE MÚSICAS ===== */
+/* ===== 4. VOLTAR FILOSOFIA ===== */
 /* ===================================================== */
 
-musicVolume.addEventListener("input", () => {
+if (backButton) {
+  backButton.addEventListener("click", () => {
+    philosophyScreen.classList.add("hidden");
+    mainScreen.classList.remove("hidden");
+  });
+}
 
-  mainMusic.volume =
-  musicVolume.value / 100;
+/* ===================================================== */
+/* ===== 5. TELA DE MÚSICAS ===== */
+/* ===================================================== */
 
-});
+if (musicButton) {
+  musicButton.addEventListener("click", () => {
+    mainScreen.classList.add("hidden");
+    philosophyScreen.classList.add("hidden");
+    musicScreen.classList.remove("hidden");
+  });
+}
 
-/* RESETAR CENÁRIO */
+if (musicBackButton) {
+  musicBackButton.addEventListener("click", () => {
+    musicScreen.classList.add("hidden");
+    mainScreen.classList.remove("hidden");
+  });
+}
+
+/* ===================================================== */
+/* ===== 6. PLAYER DE MÚSICAS ===== */
+/* ===================================================== */
 
 function resetMusicScenario() {
-
-  boatThorfinn.classList.add("hidden");
-
-  boatThors.classList.add("hidden");
-
-  boatAskeladd.classList.add("hidden");
-
-  musicSkyBackground.classList.add("hidden");
+  if (boatThorfinn) boatThorfinn.classList.add("hidden");
+  if (boatThors) boatThors.classList.add("hidden");
+  if (boatAskeladd) boatAskeladd.classList.add("hidden");
+  if (musicSkyBackground) musicSkyBackground.classList.add("hidden");
 
   mainScreen.classList.remove(
     "music-mode",
     "dagger-mode",
     "interwined-mode"
   );
+}
 
+if (musicVolume) {
+  musicVolume.addEventListener("input", () => {
+    mainMusic.volume = musicVolume.value / 100;
+  });
 }
 
 musicPlayButtons.forEach((button) => {
-
   button.addEventListener("click", () => {
-
-    const selectedMusic =
-    button.getAttribute("data-music");
-
-    const isAlreadyPlaying =
-    button.classList.contains("active-music");
-
-    /* ===================================== */
-    /* PARAR MÚSICA */
-    /* ===================================== */
+    const selectedMusic = button.getAttribute("data-music");
+    const isAlreadyPlaying = button.classList.contains("active-music");
 
     if (isAlreadyPlaying) {
-
       mainMusic.pause();
-
       mainMusic.currentTime = 0;
 
       button.classList.remove("active-music");
@@ -242,77 +162,30 @@ musicPlayButtons.forEach((button) => {
       return;
     }
 
-    /* ===================================== */
-    /* REMOVER BOTÕES ATIVOS */
-    /* ===================================== */
-
     musicPlayButtons.forEach((otherButton) => {
-
       otherButton.classList.remove("active-music");
-
     });
 
     button.classList.add("active-music");
 
-    /* ===================================== */
-    /* TOCAR MÚSICA */
-    /* ===================================== */
-
     mainMusic.src = selectedMusic;
-
-    mainMusic.volume =
-    musicVolume.value / 100;
-
+    mainMusic.volume = musicVolume.value / 100;
     mainMusic.loop = true;
-
     mainMusic.play();
-
-    /* ===================================== */
-    /* RESETAR CENÁRIO */
-    /* ===================================== */
 
     resetMusicScenario();
 
-    /* ===================================== */
-    /* DAGGER */
-    /* ===================================== */
-
-    if (
-      selectedMusic.includes("Dagger")
-    ) {
-
-      mainScreen.classList.add(
-        "music-mode",
-        "dagger-mode"
-      );
-
+    if (selectedMusic.includes("Dagger")) {
+      mainScreen.classList.add("music-mode", "dagger-mode");
       musicSkyBackground.classList.remove("hidden");
-
       boatThorfinn.classList.remove("hidden");
-
     }
 
-    /* ===================================== */
-    /* INTERWINED */
-    /* ===================================== */
-
-    else if (
-      selectedMusic.includes("Intertwined")
-    ) {
-
-      mainScreen.classList.add(
-        "music-mode",
-        "interwined-mode"
-      );
-
+    else if (selectedMusic.includes("Intertwined")) {
+      mainScreen.classList.add("music-mode", "interwined-mode");
       musicSkyBackground.classList.remove("hidden");
-
       boatThors.classList.remove("hidden");
-
       boatAskeladd.classList.remove("hidden");
-
     }
-
   });
-
 });
