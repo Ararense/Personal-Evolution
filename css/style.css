@@ -834,13 +834,15 @@ body::before {
 /* ===================================================== */
 
 @keyframes musicWave {
+
   0% {
-    background-position: 0px;
+    background-position: -1000px 0;
   }
 
   100% {
-    background-position: 1000px;
+    background-position: 1000px 0;
   }
+
 }
 
 @keyframes boatFloat {
