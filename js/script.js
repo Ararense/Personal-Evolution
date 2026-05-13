@@ -145,20 +145,76 @@ musicBackButton.addEventListener("click", () => {
 /* ===================================================== */
 
 musicVolume.addEventListener("input", () => {
-
   mainMusic.volume = musicVolume.value / 100;
-
 });
 
 musicPlayButtons.forEach((button) => {
 
   button.addEventListener("click", () => {
 
-    const selectedMusic =
-    button.getAttribute("data-music");
+    const selectedMusic = button.getAttribute("data-music");
 
-    const isAlreadyPlaying =
-    button.classList.contains("active-music");
+    const isAlreadyPlaying = button.classList.contains("active-music");
+
+    const musicSkyBackground = document.getElementById("musicSkyBackground");
+
+    const boatThors = document.getElementById("boatThors");
+
+    const boatAskeladd = document.getElementById("boatAskeladd");
+
+    function resetMusicScenario() {
+      boatThorfinn.classList.add("hidden");
+      boatThors.classList.add("hidden");
+      boatAskeladd.classList.add("hidden");
+      musicSkyBackground.classList.add("hidden");
+
+      mainScreen.classList.remove(
+        "music-mode",
+        "dagger-mode",
+        "interwined-mode"
+      );
+    }
+
+    if (isAlreadyPlaying) {
+      mainMusic.pause();
+      mainMusic.currentTime = 0;
+
+      button.classList.remove("active-music");
+
+      resetMusicScenario();
+
+      return;
+    }
+
+    musicPlayButtons.forEach((otherButton) => {
+      otherButton.classList.remove("active-music");
+    });
+
+    button.classList.add("active-music");
+
+    mainMusic.src = selectedMusic;
+    mainMusic.volume = musicVolume.value / 100;
+    mainMusic.loop = true;
+    mainMusic.play();
+
+    resetMusicScenario();
+
+    if (selectedMusic.includes("Dagger")) {
+      mainScreen.classList.add("music-mode", "dagger-mode");
+      musicSkyBackground.classList.remove("hidden");
+      boatThorfinn.classList.remove("hidden");
+    }
+
+    if (selectedMusic.includes("Intertwined")) {
+      mainScreen.classList.add("music-mode", "interwined-mode");
+      musicSkyBackground.classList.remove("hidden");
+      boatThors.classList.remove("hidden");
+      boatAskeladd.classList.remove("hidden");
+    }
+
+  });
+
+});
 
     /* ===================================== */
     /* PARAR MÚSICA */
